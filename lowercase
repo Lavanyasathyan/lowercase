@@ -1,0 +1,35 @@
+import java.util.Scanner;
+
+public class AbbreviationAlchemy {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        
+        int n = scanner.nextInt();
+        scanner.nextLine(); 
+        
+        
+        for (int i = 0; i < n; i++) {
+            String word = scanner.nextLine();
+            String abbreviatedWord = abbreviateWord(word);
+            System.out.println(abbreviatedWord);
+        }
+        
+        
+        scanner.close();
+    }
+    
+    private static String abbreviateWord(String word) {
+        int length = word.length();
+        
+        if (length <= 10) {
+            return word;
+        } else {
+            
+            char firstLetter = word.charAt(0);
+            char lastLetter = word.charAt(length - 1);
+            int middleCount = length - 2;
+            return firstLetter + String.valueOf(middleCount) + lastLetter;
+        }
+    }
+}
